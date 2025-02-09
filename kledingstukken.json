@@ -7,7 +7,7 @@
       "description": "Comfortabel en veelzijdig t-shirt, ideaal voor dagelijks gebruik.",
       "price": 19.99,
       "seasonDate": "2025-03-01",
-      "imageUrl": "images/basic_tshirt.jpg.webp",
+      "imageUrl": "https://raw.githubusercontent.com/maddiegnl/project_webontwikkeling_2025/refs/heads/main/images/images%3Abasic_tshirt.jpg.webp",
       "category": "Tops",
       "sizes": ["XS", "S", "M", "L", "XL"],
       "storeId": 201,
