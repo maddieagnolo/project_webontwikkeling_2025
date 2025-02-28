@@ -5,7 +5,7 @@
       "name": "ZARA",
       "location": "Brussel, België",
       "rating": 4.5,
-      "imageUrl": "images/zara.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/zara.jpg",
       "description": "Een populaire modeketen met trendy kleding voor elke gelegenheid."
     },
     {
@@ -13,7 +13,7 @@
       "name": "H&M",
       "location": "Antwerpen, België",
       "rating": 4.3,
-      "imageUrl": "images/hm.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/hm.jpg",
       "description": "Internationale winkelketen met stijlvolle en betaalbare kleding."
     },
     {
@@ -21,7 +21,7 @@
       "name": "Bershka",
       "location": "Gent, België",
       "rating": 4.2,
-      "imageUrl": "images/bershka.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/bershka.jpg",
       "description": "Modewinkel met een jonge en dynamische stijl."
     }
   ]

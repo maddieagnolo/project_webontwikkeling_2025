@@ -27,7 +27,7 @@
     "description": "Klassieke straight-leg jeans die bij elke outfit past.",
     "price": 49.99,
     "seasonDate": "2025-02-15",
-    "imageUrl": "images/straight_jeans.jpg",
+    "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/straight_jeans.jpg.avif",
     "category": "Broeken",
     "sizes": ["S", "M", "L", "XL"],
     "store": {
@@ -35,7 +35,7 @@
       "name": "H&M",
       "location": "Antwerpen, België",
       "rating": 4.3,
-      "imageUrl": "images/hm.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/hm.jpg",
       "description": "Internationale winkelketen met stijlvolle en betaalbare kleding."
     },
     "isAvailable": false
@@ -47,7 +47,7 @@
     "description": "Tijdloze trenchcoat die zowel chic als casual gedragen kan worden.",
     "price": 89.99,
     "seasonDate": "2025-04-01",
-    "imageUrl": "images/trenchcoat.jpg",
+    "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/trenchcoat.jpg",
     "category": "Jassen",
     "sizes": ["XS", "S", "M", "L"],
     "store": {
@@ -55,7 +55,7 @@
       "name": "Bershka",
       "location": "Gent, België",
       "rating": 4.2,
-      "imageUrl": "images/bershka.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/bershka.jpg",
       "description": "Modewinkel met een jonge en dynamische stijl."
     },
     "isAvailable": true
@@ -67,7 +67,7 @@
     "description": "Zachte en warme sweater voor een comfortabele look.",
     "price": 34.99,
     "seasonDate": "2025-01-10",
-    "imageUrl": "images/oversized_sweater.jpg",
+    "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/oversized_sweater.jpg",
     "category": "Tops",
     "sizes": ["S", "M", "L", "XL"],
     "store": {
@@ -75,7 +75,7 @@
       "name": "ZARA",
       "location": "Brussel, België",
       "rating": 4.5,
-      "imageUrl": "images/zara.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/zara.jpg",
       "description": "Een populaire modeketen met trendy kleding voor elke gelegenheid."
     },
     "isAvailable": true
@@ -87,7 +87,7 @@
     "description": "Luchtige en elegante jurk, perfect voor zomerse dagen.",
     "price": 59.99,
     "seasonDate": "2025-05-20",
-    "imageUrl": "images/zomerjurk.jpg",
+    "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/zomerjurk.jpg.avif",
     "category": "Jurken",
     "sizes": ["XS", "S", "M", "L"],
     "storeId": {
@@ -95,7 +95,7 @@
       "name": "H&M",
       "location": "Antwerpen, België",
       "rating": 4.3,
-      "imageUrl": "images/hm.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/hm.jpg",
       "description": "Internationale winkelketen met stijlvolle en betaalbare kleding."
     },
     "isAvailable": true
@@ -107,7 +107,7 @@
     "description": "Stijlvolle blazer die zowel formeel als casual gedragen kan worden.",
     "price": 79.99,
     "seasonDate": "2025-03-15",
-    "imageUrl": "images/blazer.jpg",
+    "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/images%3Ablazer.jpg.webp",
     "category": "Jassen",
     "sizes": ["S", "M", "L", "XL"],
     "store": {
@@ -115,7 +115,7 @@
       "name": "Bershka",
       "location": "Gent, België",
       "rating": 4.2,
-      "imageUrl": "images/bershka.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/bershka.jpg",
       "description": "Modewinkel met een jonge en dynamische stijl."
     },
     "isAvailable": true
@@ -127,7 +127,7 @@
     "description": "Elegante midi rok die perfect te combineren is met verschillende tops.",
     "price": 24.99,
     "seasonDate": "2025-04-05",
-    "imageUrl": "images/midi_rok.jpg",
+    "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/midi_rok.jpg",
     "category": "Rokken",
     "sizes": ["XS", "S", "M", "L"],
     "storeId": {
@@ -135,7 +135,7 @@
       "name": "H&M",
       "location": "Antwerpen, België",
       "rating": 4.3,
-      "imageUrl": "images/hm.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/hm.jpg",
       "description": "Internationale winkelketen met stijlvolle en betaalbare kleding."
     },
     "isAvailable": false
@@ -147,7 +147,7 @@
     "description": "Casual denim shorts voor een relaxte zomerse look.",
     "price": 29.99,
     "seasonDate": "2025-06-01",
-    "imageUrl": "images/denim_shorts.jpg",
+    "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/denim_shorts.jpg",
     "category": "Broeken",
     "sizes": ["S", "M", "L"],
     "storeId": {
@@ -155,7 +155,7 @@
       "name": "ZARA",
       "location": "Brussel, België",
       "rating": 4.5,
-      "imageUrl": "images/zara.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/zara.jpg",
       "description": "Een populaire modeketen met trendy kleding voor elke gelegenheid."
     },
     "isAvailable": true
@@ -167,7 +167,7 @@
     "description": "Trendy cropped top die goed combineert met high-waisted jeans.",
     "price": 9.99,
     "seasonDate": "2025-05-10",
-    "imageUrl": "images/cropped_top.jpg",
+    "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/cropped_top.jpg",
     "category": "Tops",
     "sizes": ["XS", "S", "M", "L"],
     "storeId": {
@@ -175,7 +175,7 @@
       "name": "Bershka",
       "location": "Gent, België",
       "rating": 4.2,
-      "imageUrl": "images/bershka.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/bershka.jpg",
       "description": "Modewinkel met een jonge en dynamische stijl."
     },
     "isAvailable": true
@@ -187,7 +187,7 @@
     "description": "Comfortabele en elastische leggings, ideaal voor sport en casual wear.",
     "price": 19.99,
     "seasonDate": "2025-02-28",
-    "imageUrl": "images/leggings.jpg",
+    "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/leggings.jpg",
     "category": "Broeken",
     "sizes": ["XS", "S", "M", "L", "XL"],
     "storeId": {
@@ -195,7 +195,7 @@
       "name": "H&M",
       "location": "Antwerpen, België",
       "rating": 4.3,
-      "imageUrl": "images/hm.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/hm.jpg",
       "description": "Internationale winkelketen met stijlvolle en betaalbare kleding."
     },
     "isAvailable": true
