@@ -90,7 +90,7 @@
     "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/zomerjurk.jpg.avif",
     "category": "Jurken",
     "sizes": ["XS", "S", "M", "L"],
-    "storeId": {
+    "store": {
       "id": 202,
       "name": "H&M",
       "location": "Antwerpen, België",
@@ -130,7 +130,7 @@
     "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/midi_rok.jpg",
     "category": "Rokken",
     "sizes": ["XS", "S", "M", "L"],
-    "storeId": {
+    "store": {
       "id": 202,
       "name": "H&M",
       "location": "Antwerpen, België",
@@ -150,7 +150,7 @@
     "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/denim_shorts.jpg",
     "category": "Broeken",
     "sizes": ["S", "M", "L"],
-    "storeId": {
+    "store": {
       "id": 201,
       "name": "ZARA",
       "location": "Brussel, België",
@@ -170,7 +170,7 @@
     "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/cropped_top.jpg",
     "category": "Tops",
     "sizes": ["XS", "S", "M", "L"],
-    "storeId": {
+    "store": {
       "id": 203,
       "name": "Bershka",
       "location": "Gent, België",
@@ -190,7 +190,7 @@
     "imageUrl": "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/images/leggings.jpg",
     "category": "Broeken",
     "sizes": ["XS", "S", "M", "L", "XL"],
-    "storeId": {
+    "store": {
       "id": 202,
       "name": "H&M",
       "location": "Antwerpen, België",

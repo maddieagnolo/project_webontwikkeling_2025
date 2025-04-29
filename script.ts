@@ -1,19 +1,18 @@
-import kledingstukken from "./kledingstukken.json";
+import clothing from "./clothing.json";
 import * as readline from "readline-sync";
 
-const products = kledingstukken;
+const products = clothing;
 
 const menuItems = [
   "Toon alle kledingstukken",
-  "Filter op beschikbaarheid",
   "Zoek kledingstuk op ID",
-  "Zoek kledingstuk op naam",
   "Exit",
 ];
 
 let answer;
+let continueProgram = true;
 do {
-  answer = readline.keyInSelect(menuItems, "Maak een keuze:");
+  answer = readline.keyInSelect(menuItems, "Maak een keuze", { cancel: false });
   console.log(`Je hebt gekozen voor: ${menuItems[answer]}`);
 
   switch (answer) {
@@ -21,44 +20,28 @@ do {
       showAllProducts();
       break;
     case 1:
-      filterAvailableProducts();
-      break;
-    case 2:
       searchProductById();
       break;
-    case 3:
-      searchProductByName();
-      break;
-    default:
+    case 2:
       console.log("Programma afgesloten.");
+      continueProgram = false;
       break;
   }
-} while (answer !== -1);
+} while (answer !== -1 && continueProgram);
 
+//case0
 function showAllProducts() {
   console.clear();
-  console.log("Alle kledingstukken:");
+  console.log("Alle clothing:");
   products.forEach((product) => {
     console.log(
-      `${product.id}. ${product.name} - €${product.price} (${product.store})`
+      `${product.id}. ${product.name} - €${product.price} (${product.store.name})`
     );
   });
   console.log("-".repeat(25));
 }
 
-function filterAvailableProducts() {
-  console.clear();
-  console.log("Beschikbare kledingstukken:");
-  products
-    .filter((product) => product.isAvailable)
-    .forEach((product) => {
-      console.log(
-        `${product.id}. ${product.name} - €${product.price} (${product.store})`
-      );
-    });
-  console.log("-".repeat(25));
-}
-
+//case 2
 function searchProductById() {
   console.clear();
   const id = readline.questionInt("Geef een ID in: ");
@@ -68,30 +51,10 @@ function searchProductById() {
     console.log(`Beschrijving: ${product.description}`);
     console.log(`Prijs: €${product.price}`);
     console.log(`Categorie: ${product.category}`);
-    console.log(`Winkel: ${product.store}`);
+    console.log(`Winkel: ${product.store.name}`);
     console.log(`Beschikbaar: ${product.isAvailable ? "Ja" : "Nee"}`);
   } else {
     console.log("Geen product gevonden met dit ID.");
-  }
-  console.log("-".repeat(25));
-}
-
-function searchProductByName() {
-  console.clear();
-  const name = readline
-    .question("Geef een naam of deel van een naam in: ")
-    .toLowerCase();
-  const results = products.filter((p) => p.name.toLowerCase().includes(name));
-
-  if (results.length > 0) {
-    console.log("\nGevonden producten:");
-    results.forEach((product) => {
-      console.log(
-        `${product.id}. ${product.name} - €${product.price} (${product.store})`
-      );
-    });
-  } else {
-    console.log("Geen producten gevonden met deze naam.");
   }
   console.log("-".repeat(25));
 }
