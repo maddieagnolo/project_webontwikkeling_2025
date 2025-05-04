@@ -1,12 +1,15 @@
 import clothing from "./clothing.json";
 import * as readline from "readline-sync";
+import {Clothing} from  "./interface"
 
-const products = clothing;
+
+const products:Clothing[] = clothing;
 
 const menuItems = [
   "Toon alle kledingstukken",
   "Zoek kledingstuk op ID",
   "Exit",
+
 ];
 
 let answer;
