@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Winkel Overzicht</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <%- include("partials/nav") %>
+
+  <header class="clothing-header">
+  </header>
+
+  <section class="clothing-controls">
+    <input type="text" id="filterInput" placeholder="Filter op naam of locatie..." />
+    <label for="sortField">Sorteer op:</label>
+    <select id="sortField">
+      <option value="name">Naam</option>
+      <option value="location">Locatie</option>
+      <option value="rating">Rating</option>
+    </select>
+    <button id="sortToggle">Oplopend</button>
+  </section>
+
+  <main>
+    <div class="clothing-grid" id="storesGrid">
+      <% stores.forEach(store => { %>
+      <div class="clothing-card" data-name="<%= store.name.toLowerCase() %>" data-location="<%= store.location.toLowerCase() %>" data-rating="<%= store.rating %>">
+        <a href="/stores/<%= store.id %>">
+          <img src="<%= store.imageUrl %>" alt="<%= store.name %>" />
+          <div class="card-info">
+            <h2><%= store.name %></h2>
+            <p class="store"><%= store.location %></p>
+            <p class="price">Rating: <%= store.rating %> / 5</p>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Kledingwinkel</p>
+  </footer>
+
+  <script>
+    const filterInput = document.getElementById('filterInput');
+    const sortField = document.getElementById('sortField');
+    const sortToggle = document.getElementById('sortToggle');
+    const grid = document.getElementById('storesGrid');
+    let asc = true;
+
+    function filterAndSort() {
+      const filterText = filterInput.value.toLowerCase();
+      const field = sortField.value;
+      const cards = Array.from(grid.children);
+
+      let filtered = cards.filter(card => {
+        // Filter zoeken in naam en locatie
+        return card.dataset.name.includes(filterText) || card.dataset.location.includes(filterText);
+      });
+
+      filtered.sort((a, b) => {
+        let aVal = a.dataset[field];
+        let bVal = b.dataset[field];
+        if (field === 'rating') {
+          aVal = parseFloat(aVal);
+          bVal = parseFloat(bVal);
+        }
+        if (aVal < bVal) return asc ? -1 : 1;
+        if (aVal > bVal) return asc ? 1 : -1;
+        return 0;
+      });
+
+      grid.innerHTML = '';
+      filtered.forEach(card => grid.appendChild(card));
+    }
+
+    filterInput.addEventListener('input', filterAndSort);
+    sortField.addEventListener('change', filterAndSort);
+    sortToggle.addEventListener('click', () => {
+      asc = !asc;
+      sortToggle.textContent = asc ? 'Oplopend' : 'Aflopend';
+      filterAndSort();
+    });
+
+    filterAndSort();
+  </script>
+</body>
+
+</html>

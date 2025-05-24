@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <title><%= item.name %> - Detailpagina</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <%- include("partials/nav") %>
+
+  <main class="clothing-detail">
+    <div class="clothing-image">
+      <img src="<%= item.imageUrl %>" alt="<%= item.name %>" />
+    </div>
+
+    <div class="clothing-info">
+      <h1><%= item.name %></h1>
+      <p class="description"><%= item.description %></p>
+
+      <div class="price"><strong>Prijs:</strong> €<%= item.price.toFixed(2) %></div>
+      <div><strong>Artikelnummer:</strong> <%= item.articleNumber %></div>
+      <div><strong>Beschikbaar:</strong> <%= item.isAvailable ? "Ja" : "Nee" %></div>
+      <div><strong>Categorie:</strong> <%= item.category %></div>
+      <div><strong>Maten:</strong> <%= item.sizes.join(", ") %></div>
+      <div><strong>Seizoen:</strong> <%= item.seasonDate %></div>
+
+      <hr />
+
+      <!-- Aangepaste store-info met klikbare link en nette layout -->
+      <a href="/stores/<%= item.store.id %>" class="store-info">
+        <img src="<%= item.store.imageUrl %>" alt="<%= item.store.name %> logo" />
+        <div class="store-text">
+          <p class="store-location"><strong>Locatie:</strong> <%= item.store.location %></p>
+        </div>
+      </a>
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kledingwinkel Overzicht</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <%- include("partials/nav") %>
+  <header class="clothing-header">
+  </header>
+
+  <section class="clothing-controls">
+    <input type="text" id="filterInput" placeholder="Filter op naam..." />
+    <label for="sortField">Sorteer op:</label>
+    <select id="sortField">
+      <option value="name">Naam</option>
+      <option value="price">Prijs</option>
+      <option value="store">Winkel</option>
+    </select>
+    <button id="sortToggle">Oplopend</button>
+  </section>
+
+  <main>
+    <div class="clothing-grid" id="itemsGrid">
+      <% clothing.forEach(item => { %>
+      <div class="clothing-card" data-name="<%= item.name.toLowerCase() %>" data-price="<%= item.price %>" data-store="<%= stores.find(s => s.id === item.storeId)?.name.toLowerCase() || '' %>">
+        <a href="/clothing/<%= item.id %>">
+          <img src="<%= item.imageUrl %>" alt="<%= item.name %>" />
+          <div class="card-info">
+            <h2><%= item.name %></h2>
+            <p class="price">€<%= item.price.toFixed(2) %></p>
+            <p class="store"><%= item.store.name || "Onbekende winkel" %></p>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Kledingwinkel</p>
+  </footer>
+
+  <script>
+    const filterInput = document.getElementById('filterInput');
+    const sortField = document.getElementById('sortField');
+    const sortToggle = document.getElementById('sortToggle');
+    const grid = document.getElementById('itemsGrid');
+    let asc = true;
+
+    function filterAndSort() {
+      const filterText = filterInput.value.toLowerCase();
+      const field = sortField.value;
+      const cards = Array.from(grid.children);
+
+      let filtered = cards.filter(card => {
+        return card.dataset.name.includes(filterText);
+      });
+
+      filtered.sort((a, b) => {
+        let aVal = a.dataset[field];
+        let bVal = b.dataset[field];
+        if (field === 'price') {
+          aVal = parseFloat(aVal);
+          bVal = parseFloat(bVal);
+        }
+        if (aVal < bVal) return asc ? -1 : 1;
+        if (aVal > bVal) return asc ? 1 : -1;
+        return 0;
+      });
+
+      grid.innerHTML = '';
+      filtered.forEach(card => grid.appendChild(card));
+    }
+
+    filterInput.addEventListener('input', filterAndSort);
+    sortField.addEventListener('change', filterAndSort);
+    sortToggle.addEventListener('click', () => {
+      asc = !asc;
+      sortToggle.textContent = asc ? 'Oplopend' : 'Aflopend';
+      filterAndSort();
+    });
+
+    filterAndSort();
+  </script>
+</body>
+
+</html>

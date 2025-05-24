@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <title><%= store.name %> - Winkel Detail</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <%- include("partials/nav") %>
+
+  <main class="store-detail-container">
+    <div class="store-header">
+      <img src="<%= store.imageUrl %>" alt="<%= store.name %>" class="store-image" />
+      <h1 class="store-name"><%= store.name %></h1>
+    </div>
+
+    <section class="store-info-section">
+      <p><strong>Locatie:</strong> <%= store.location %></p>
+      <p><strong>Rating:</strong> <%= store.rating %> / 5</p>
+      <p><strong>Beschrijving:</strong> <%= store.description %></p>
+    </section>
+
+    <section class="store-products">
+      <h2>Beschikbare producten</h2>
+      <div class="store-products-grid">
+        <% storeClothing.forEach(item => { %>
+        <div class="store-product-card">
+          <a href="/clothing/<%= item.id %>">
+            <img src="<%= item.imageUrl %>" alt="<%= item.name %>" />
+            <div class="store-product-info">
+              <h3><%= item.name %></h3>
+              <p>€<%= item.price.toFixed(2) %></p>
+            </div>
+          </a>
+        </div>
+        <% }) %>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
