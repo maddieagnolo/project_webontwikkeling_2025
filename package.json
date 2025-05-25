@@ -27,6 +27,7 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "mongodb": "^6.16.0",
     "nodemon": "^3.1.10",
     "readline-sync": "^1.4.10",
     "typescript": "^5.7.3"

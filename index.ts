@@ -1,6 +1,8 @@
 import express from "express";
 import { Clothing, Store } from "./interface";
-
+import { Db } from "mongodb";
+import { connectionMongoDB, closeConnection } from "./mongo";
+import { loadData } from "./data";
 const app = express();
 
 app.set("view engine", "ejs");
@@ -9,19 +11,41 @@ app.use(express.static("public"));
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 
+let db: Db;
+
+async function Start() {
+  try {
+    db = await connectionMongoDB();
+    await loadData(db);
+
+    app.listen(3000, () => {
+      console.log(`Server draait op http://localhost:3000`);
+    });
+
+    process.on("SIGINT", async () => {
+      console.log("server afsluiten!");
+      await closeConnection();
+      process.exit(0);
+    });
+  } catch (error) {
+    console.error("Fout bij starten:", error);
+  }
+}
+Start();
+
 app.get("/", async (req, res) => {
   try {
     // Fetch kledingdata
-    const clothingRes = await fetch(
-      "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/clothing.json"
-    );
-    const clothing: Clothing[] = await clothingRes.json();
+    let clothing: Clothing[] = await db
+      .collection<Clothing>("clothes")
+      .find({})
+      .toArray();
 
     // Fetch winkels data
-    const storesRes = await fetch(
-      "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/stores.json"
-    );
-    const stores: Store[] = await storesRes.json();
+    let stores: Store[] = await db
+      .collection<Store>("stores")
+      .find({})
+      .toArray();
 
     // Render je index.ejs en geef data door
     res.render("index", { clothing, stores });
@@ -36,26 +60,27 @@ app.get("/clothing/:id", async (req, res) => {
     const id = Number(req.params.id);
 
     // Fetch kledingdata
-    const clothingRes = await fetch(
-      "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/clothing.json"
-    );
-    const clothing = await clothingRes.json();
+    let clothing: Clothing[] = await db
+      .collection<Clothing>("clothes")
+      .find({})
+      .toArray();
 
     // Fetch winkels data
-    const storesRes = await fetch(
-      "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/stores.json"
-    );
-    const stores = await storesRes.json();
+    let stores: Store[] = await db
+      .collection<Store>("stores")
+      .find({})
+      .toArray();
 
     // Zoek het kledingstuk met dit id
     const item = clothing.find((c: any) => c.id === id);
     if (!item) {
       res.status(404).send("Kledingstuk niet gevonden");
+      return;
     }
 
     // Vind winkelnaam
-    const store = stores.find((s: any) => s.id === item.storeId);
-    item.storeName = store ? store.name : "Onbekend";
+    const store = stores.find((s: any) => s.id === item.store.id);
+    item.store.name = store ? store.name : "Onbekend";
 
     // Render detail.ejs met item
     res.render("detail", { item });
@@ -67,19 +92,15 @@ app.get("/clothing/:id", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log(`The application is listening on http://localhost:3000`);
-});
-
 app.get("/stores/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 
     // Fetch winkels data
-    const storesRes = await fetch(
-      "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/stores.json"
-    );
-    const stores = await storesRes.json();
+    let stores: Store[] = await db
+      .collection<Store>("stores")
+      .find({})
+      .toArray();
 
     // Zoek de winkel met dit id
     const store = stores.find((s: any) => s.id === id);
@@ -88,10 +109,10 @@ app.get("/stores/:id", async (req, res) => {
     }
 
     // Optioneel: fetch alle kledingstukken van deze winkel
-    const clothingRes = await fetch(
-      "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/clothing.json"
-    );
-    const clothing = await clothingRes.json();
+    let clothing: Clothing[] = await db
+      .collection<Clothing>("clothes")
+      .find({})
+      .toArray();
 
     // Filter kledingstukken die bij deze winkel horen
     const storeClothing = clothing.filter((c: any) => c.store.id === id);
@@ -107,10 +128,7 @@ app.get("/stores/:id", async (req, res) => {
 });
 
 app.get("/stores", async (req, res) => {
-  const storesRes = await fetch(
-    "https://raw.githubusercontent.com/maddieagnolo/project_webontwikkeling_2025/refs/heads/main/stores.json"
-  );
-  const stores: Clothing[] = await storesRes.json();
+  let stores: Store[] = await db.collection<Store>("stores").find({}).toArray();
 
   res.render("stores", { stores });
 });
