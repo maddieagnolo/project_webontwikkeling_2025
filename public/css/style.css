@@ -273,3 +273,52 @@ footer {
   font-weight: bold;
   color: rgb(51, 49, 49);
 }
+.edit-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #555;
+}
+.clothing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.clothing-form label {
+  font-weight: bold;
+}
+
+.clothing-form input,
+.clothing-form textarea,
+.clothing-form select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.edit-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #555;
+}

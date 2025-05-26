@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Kledingstuk bewerken</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <%- include("partials/nav") %>
+
+  <main class="clothing-detail">
+    <div class="clothing-image">
+      <img src="<%= item.imageUrl %>" alt="<%= item.name %>" />
+    </div>
+
+    <div class="clothing-info">
+      <h1>Bewerk <%= item.name %></h1>
+
+      <form action="/clothing/<%= item.id %>/edit" method="POST" class="clothing-form">
+        <label for="name">Naam:</label>
+        <input type="text" id="name" name="name" value="<%= item.name %>" required />
+
+        <label for="price">Prijs:</label>
+        <input type="number" step="0.01" id="price" name="price" value="<%= item.price %>" required />
+
+        <label for="isAvailable">Beschikbaar:</label>
+        <select id="isAvailable" name="isAvailable">
+          <option value="true" <%= item.isAvailable ? 'selected' : '' %>>Ja</option>
+          <option value="false" <%= !item.isAvailable ? 'selected' : '' %>>Nee</option>
+        </select>
+
+        <label for="storeId">Winkel:</label>
+        <select id="storeId" name="storeId" required>
+          <% stores.forEach(store => { %>
+          <option value="<%= store.id %>" <%= store.id === item.store.id ? 'selected' : '' %>>
+            <%= store.name %> - <%= store.location %>
+          </option>
+          <% }) %>
+        </select>
+
+        <button type="submit" class="edit-button">Opslaan</button>
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>

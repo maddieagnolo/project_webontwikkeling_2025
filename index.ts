@@ -132,3 +132,43 @@ app.get("/stores", async (req, res) => {
 
   res.render("stores", { stores });
 });
+
+app.get("/clothing/:id/edit", async (req, res) => {
+  const id = Number(req.params.id);
+
+  const clothing = await db.collection<Clothing>("clothes").findOne({ id });
+  const stores = await db.collection<Store>("stores").find({}).toArray();
+
+  if (!clothing) {
+    res.status(404).send("Kledingstuk niet gevonden");
+  }
+
+  res.render("clothing-edit", { item: clothing, stores });
+});
+
+app.post("/clothing/:id/edit", async (req, res) => {
+  const id = Number(req.params.id);
+  const { name, price, isAvailable, storeId } = req.body;
+
+  const store = await db
+    .collection<Store>("stores")
+    .findOne({ id: Number(storeId) });
+  if (!store) {
+    res.status(400).send("Winkel niet gevonden");
+    return;
+  }
+
+  await db.collection<Clothing>("clothes").updateOne(
+    { id },
+    {
+      $set: {
+        name,
+        price: Number(price),
+        isAvailable: isAvailable === "true" || isAvailable === true,
+        store,
+      },
+    }
+  );
+
+  res.redirect(`/clothing/${id}`);
+});

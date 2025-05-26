@@ -28,13 +28,13 @@
 
       <hr />
 
-      <!-- Aangepaste store-info met klikbare link en nette layout -->
       <a href="/stores/<%= item.store.id %>" class="store-info">
         <img src="<%= item.store.imageUrl %>" alt="<%= item.store.name %> logo" />
         <div class="store-text">
           <p class="store-location"><strong>Locatie:</strong> <%= item.store.location %></p>
         </div>
       </a>
+      <a href="/clothing/<%= item.id %>/edit" class="edit-button">Bewerk dit kledingstuk</a>
     </div>
   </main>
 </body>
