@@ -1,4 +1,4 @@
-import { Store, Clothing } from "./interface";
+import { Store, Clothing } from "./types";
 import { Db } from "mongodb";
 
 export async function loadData(db: Db) {

@@ -1,4 +1,4 @@
-/* === Algemeen === */
+/* Algemeen  */
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
@@ -31,7 +31,7 @@ nav.navbar a {
   font-weight: 600;
 }
 
-/* === Overzichtpagina kleding === */
+/* Overzichtpagina kleding  */
 .clothing-header {
   text-align: center;
   background-color: #fff;
@@ -183,7 +183,7 @@ footer {
   margin-top: 2rem;
 }
 
-/* === Store Detail pagina === */
+/* Store Detail pagina */
 .store-detail-container {
   max-width: 1100px;
   margin: 2rem auto;
@@ -321,4 +321,121 @@ footer {
 
 .edit-button:hover {
   background-color: #555;
+}
+
+/*login pagina*/
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  background-color: white;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.login-container h2 {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #000;
+  outline: none;
+}
+
+.alert {
+  color: red;
+  font-size: 0.875rem;
+  height: 1em;
+}
+
+.login-button,
+.back-button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button {
+  background-color: #000;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.login-button:hover {
+  background-color: #333;
+}
+
+.back-button {
+  background-color: #000;
+  color: white;
+}
+
+.back-button:hover {
+  background-color: #444;
+}
+
+/*log uit knop */
+.logout-button {
+  background-color: #d9534f;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c9302c;
 }

@@ -1,15 +1,13 @@
 import clothing from "./clothing.json";
 import * as readline from "readline-sync";
-import {Clothing} from  "./interface"
+import { Clothing } from "./types";
 
-
-const products:Clothing[] = clothing;
+const products: Clothing[] = clothing;
 
 const menuItems = [
   "Toon alle kledingstukken",
   "Zoek kledingstuk op ID",
   "Exit",
-
 ];
 
 let answer;
@@ -32,7 +30,6 @@ do {
   }
 } while (answer !== -1 && continueProgram);
 
-//case0
 function showAllProducts() {
   console.clear();
   console.log("Alle clothing:");
@@ -44,7 +41,6 @@ function showAllProducts() {
   console.log("-".repeat(25));
 }
 
-//case 2
 function searchProductById() {
   console.clear();
   const id = readline.questionInt("Geef een ID in: ");

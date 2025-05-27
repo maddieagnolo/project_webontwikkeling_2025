@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="register.js" defer></script>
+  <title>Registreren | FashionHub</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="login-page">
+  <div class="login-container">
+    <h1>Registreer bij <br />FashionHub</h1>
+    <h2>Maak een account aan</h2>
+
+    <% if (typeof error !== 'undefined') { %>
+    <p class="error-message" style="color: red;"><%= error %></p>
+    <% } %>
+
+    <form id="registerForm" action="/register" method="post">
+      <div class="form-group">
+        <label for="username">Gebruikersnaam:</label>
+        <input type="text" name="username" id="username" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Wachtwoord:</label>
+        <input type="password" name="password" id="password" required />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Herhaal wachtwoord:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" required />
+      </div>
+
+      <button type="submit" class="login-button">Registreren</button>
+      <button type="button" class="back-button" onclick="window.location.href = '/login'">Terug naar login</button>
+    </form>
+  </div>
+</body>
+
+</html>

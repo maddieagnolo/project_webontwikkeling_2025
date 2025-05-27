@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb";
+
 export interface Clothing {
   id: number;
   name: string;
@@ -18,4 +20,11 @@ export interface Store {
   rating: number;
   imageUrl: string;
   description: string;
+}
+
+export interface User {
+  _id?: ObjectId;
+  username: string;
+  password?: string;
+  role: "ADMIN" | "USER";
 }

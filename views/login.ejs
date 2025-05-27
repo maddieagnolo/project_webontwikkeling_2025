@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Login | FashionHub</title>
+</head>
+
+<body class="login-page">
+  <div class="login-container">
+    <h1>Login bij <br />FashionHub</h1>
+    <h2>Welkom terug!</h2>
+
+    <form id="nameForm" action="/login" method="post">
+      <div class="form-group">
+        <label for="username">Gebruikersnaam:</label>
+        <input type="text" name="username" id="username" />
+        <p id="usernameAlert" class="alert"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Wachtwoord:</label>
+        <input type="password" name="password" id="password" />
+        <p id="passwordAlert" class="alert"></p>
+      </div>
+
+      <button type="submit" id="login" class="login-button">Inloggen</button>
+      <button type="button" class="back-button" onclick="window.location.href = '/'">Terug</button>
+    </form>
+    <p>Nog geen account? <a href="/register">Registreer hier</a></p>
+
+  </div>
+</body>
+
+</html>
+
+<script>
+  const inputUsername = document.getElementById("username");
+  const inputPassword = document.getElementById("password");
+  const warningUsername = document.getElementById("usernameAlert");
+  const warningPassword = document.getElementById("passwordAlert");
+  inputUsername.addEventListener("blur", usernameFunction);
+
+  function usernameFunction() {
+    if (inputUsername.value.trim() == "") {
+      warningUsername.textContent = "Gelieve uw gebruikersnaam in te vullen a.u.b.";
+      inputUsername.classList.add("input-error");
+    } else {
+      warningUsername.textContent = "";
+      inputUsername.classList.remove("input-error");
+    }
+  }
+
+  inputPassword.addEventListener("blur", passwordFunction);
+
+  function passwordFunction() {
+    if (inputPassword.value.trim() == "") {
+      warningPassword.textContent = "Gelieve uw wachtwoord in te vullen a.u.b.";
+      inputPassword.classList.add("input-error");
+    } else {
+      warningPassword.textContent = "";
+      inputPassword.classList.remove("input-error");
+    }
+  }
+
+  const buttonLogin = document.getElementById("login");
+  buttonLogin.addEventListener("click", emptyInput);
+
+  function emptyInput(e) {
+    usernameFunction();
+    passwordFunction();
+    if (inputUsername.value.trim() === "" || inputPassword.value.trim() === "") {
+      e.preventDefault();
+    }
+  }
+</script>
